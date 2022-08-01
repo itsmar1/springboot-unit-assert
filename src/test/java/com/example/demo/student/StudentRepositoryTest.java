@@ -10,17 +10,17 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class StudentRepositoryTest {
 
     @Autowired
-    private StudentRepository userTest;
+    private StudentRepository underTest;
 
     @Test
     void itShouldCheckIfStudentExistsEmail() {
         // given
         String email = "jamila@gmail.com";
         Student student = new Student("Jamila", email, Gender.FEMALE);
-        userTest.save(student);
+        underTest.save(student);
 
         // when
-        boolean exists = userTest.selectExistsEmail(email);
+        boolean exists = underTest.selectExistsEmail(email);
 
         // then
         assertThat(exists).isTrue();
